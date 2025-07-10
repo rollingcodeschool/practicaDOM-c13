@@ -11,7 +11,6 @@ const cambiarTitulo= ()=>{
 }
 
 const ocultarParrafo = () =>{
-    console.log('desde la funcion ocultar Parrafo')
     //buscar el parrafo
     const parrafo = document.getElementById('parrafo');
     //ocultar el parrafo hidden o d-none
@@ -27,12 +26,24 @@ const ocultarParrafo = () =>{
     }
 }
 
+const borrarParrafo = ()=>{
+    console.log('desde la funcion borrar parrafo')
+    //buscar el parrafo
+    const parrafos = document.getElementsByTagName('p');
+    console.log(parrafos[4])
+    //borrar el parrafo
+    parrafos[4].remove()
+    //deshabilitar el boton de eliminar
+    btnAmarillo.classList.add('disabled')
+}
 //buscar el boton rojo
 // const btnRojo = document.getElementsByTagName('button')
 // const btnRojo = document.getElementsByClassName('btn-danger')
 const btnRojo = document.querySelector('.btn-danger')
-console.log(btnRojo)
+const btnAmarillo = document.querySelector('.btn-warning')
+console.log(btnAmarillo)
 
 //agregar el evento click
 btnRojo.addEventListener('click', ocultarParrafo)
+btnAmarillo.addEventListener('click', borrarParrafo)
 
