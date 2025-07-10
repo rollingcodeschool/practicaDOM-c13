@@ -12,6 +12,19 @@ const cambiarTitulo= ()=>{
 
 const ocultarParrafo = () =>{
     console.log('desde la funcion ocultar Parrafo')
+    //buscar el parrafo
+    const parrafo = document.getElementById('parrafo');
+    //ocultar el parrafo hidden o d-none
+    parrafo.classList.toggle('visually-hidden')
+    //cambiar el texto del boton por mostrar parrafo
+    if(btnRojo.textContent === 'Ocultar párrafo' ){
+        //cambiar el estilo del boton por otro color
+        btnRojo.textContent = 'Mostrar párrafo'
+        btnRojo.classList.replace('btn-danger', 'btn-success')
+    }else{
+         btnRojo.textContent = 'Ocultar párrafo'
+         btnRojo.classList.replace('btn-success', 'btn-danger')
+    }
 }
 
 //buscar el boton rojo
@@ -22,3 +35,4 @@ console.log(btnRojo)
 
 //agregar el evento click
 btnRojo.addEventListener('click', ocultarParrafo)
+
