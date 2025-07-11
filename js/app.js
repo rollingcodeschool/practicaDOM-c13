@@ -36,14 +36,31 @@ const borrarParrafo = ()=>{
     //deshabilitar el boton de eliminar
     btnAmarillo.classList.add('disabled')
 }
+
+const obtenerNombre = (e)=>{
+    e.preventDefault()
+    console.log(e)
+    console.log('desde la funcion obtener nombre')
+    //tome el texto del input 
+    const input = document.querySelectorAll('.form-control')
+    console.log(input[1].value)
+    const parrafos = document.querySelectorAll('p')
+    console.log(parrafos[5])
+    //mostrar el texto en el parrafo que esta abajo del form
+    // parrafos[5].textContent = parrafos[5].textContent + input[1].value
+    parrafos[5].textContent += input[1].value
+    formulario.reset()
+}
 //buscar el boton rojo
 // const btnRojo = document.getElementsByTagName('button')
 // const btnRojo = document.getElementsByClassName('btn-danger')
 const btnRojo = document.querySelector('.btn-danger')
 const btnAmarillo = document.querySelector('.btn-warning')
-console.log(btnAmarillo)
+const formulario = document.querySelector('#formNombre')
+console.log(formulario)
 
 //agregar el evento click
 btnRojo.addEventListener('click', ocultarParrafo)
 btnAmarillo.addEventListener('click', borrarParrafo)
+formulario.addEventListener('submit', obtenerNombre)
 
