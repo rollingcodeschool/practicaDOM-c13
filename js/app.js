@@ -51,8 +51,8 @@ const obtenerNombre = (e)=>{
     parrafos[5].textContent += input[1].value
     formulario.reset()
 }
-
-const crearTarea = (e)=>{
+// esta es la opcion del lado del bien
+const crearTarea2 = (e)=>{
     e.preventDefault();
     console.log('desde la funcion crear tarea')
     //1- tomar la tarea del input
@@ -80,6 +80,27 @@ const crearTarea = (e)=>{
     divcardBody.appendChild(h5)
     // divcardBody.prepend(p)// este metodo agrega un nodo hijo al inicio
     divcardBody.appendChild(p)// este metodo agrega un nodo hijo al final
+    //4-resetear el formulario
+    formularioTarea.reset()
+}
+//lado oscuro
+const crearTarea = (e)=>{
+    e.preventDefault();
+    //1- tomar la tarea del input
+    const inputTarea = document.getElementById('tarea').value.trim()
+    //2- crear una card con el texto de la tarea anterior
+    const row = document.querySelector('.row-gap-3')
+    //3- agregar la card a la grilla
+    row.innerHTML += `<div class="col-md-4 col-lg-3">
+              <div class="card h-100" >
+                <div class="card-body">
+                  <h5 class="card-title">Tarea ✔</h5>
+                  <p class="card-text">
+                    ${inputTarea}
+                  </p>
+                </div>
+              </div>
+            </div>`
     //4-resetear el formulario
     formularioTarea.reset()
 }
